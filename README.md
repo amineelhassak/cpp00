@@ -32,3 +32,13 @@ Automatiquement géré pour la mémoire et la taille.
 
 -->
 
+<!-- getLine -->
+<!-- data hiding : private -->
+<!-- find
+size
+insert
+append
+addfront
+addback
+empty
+ -->
