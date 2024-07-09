@@ -1,2 +1,2 @@
-.:
-	c++ -Wall -Wextra -Werror -std=c++98 megaphone.cpp -o megaphone.o
+all:
+	c++ -Wall -Wextra -Werror -std=c++98 Account.cpp tests.cpp -o Account
