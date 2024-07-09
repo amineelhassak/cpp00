@@ -2,6 +2,10 @@
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 class Account {
 public:
 
@@ -30,7 +34,7 @@ private:
 	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void );
-
+	
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;

@@ -36,6 +36,7 @@
         "cwctype": "cpp",
         "exception": "cpp",
         "initializer_list": "cpp",
+        "iomanip": "cpp",
         "ios": "cpp",
         "iosfwd": "cpp",
         "iostream": "cpp",
@@ -60,7 +61,6 @@
         "unordered_map": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "algorithm": "cpp",
-        "iomanip": "cpp"
+        "algorithm": "cpp"
     }
 }
