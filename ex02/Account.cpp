@@ -1,8 +1,11 @@
-#include " Account.hpp"
+#include "Account.hpp"
+
+#include <iostream>
+#include <iomanip>
 
 int Account::_nbAccounts = 0;
-int Account::_totalAmount= 0;
-int Account::_totalNbDeposits= 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 int Account::getNbAccounts(void)
@@ -26,67 +29,75 @@ int	Account::getNbWithdrawals( void )
 }
 void    Account::displayAccountsInfos( void )
 {
+    Account::_displayTimestamp();
     std::cout <<"accounts:"<<Account::getNbAccounts()<<";total:"<<Account::getTotalAmount() \
     <<";deposits:" << Account::getNbDeposits()<<";withdrawals:"<<Account::getNbWithdrawals()<<"\n";
 }
 
-// Account::Account( int initial_deposit )
-// {
-//     _nbAccounts++;
-    
-// }
-
-// Account::~Account( void )
-// {
- 
-// }
+Account::Account( int initial_deposit )
+{
+    this->_amount = initial_deposit;
+    Account::_totalAmount= initial_deposit;
+    this->_nbDeposits = 0;
+    this->_nbWithdrawals = 0;
+    this->_accountIndex = this->_nbAccounts;
+    this->_nbAccounts++;
+    Account::_displayTimestamp();
+    std::cout<<"index:"<<this->_accountIndex<<";amount:"<<this->_amount<<";created\n";
+}
+Account::~Account( void )
+{
+    this->_nbAccounts--;
+    Account::_displayTimestamp();
+    std::cout<<"index:"<<this->_accountIndex<<";amount:"<<this->_amount<<";closed\n";
+}
 
 void	Account::makeDeposit( int deposit )
 {
-    if (deposit > 0)
+    Account::_displayTimestamp();
+    std::cout<<"index:"<< this->_accountIndex<<";p_amount:"<<this->_amount\
+    <<";deposit:"<<deposit;
+    Account::_totalAmount += deposit;
+    this->_amount += deposit;
+    Account::_totalNbDeposits++;
+    this->_nbDeposits++;
+    std::cout << ";amount:" << this->_amount<<";nb_deposits:"<< this->_nbDeposits<<"\n";
+}
+
+bool	Account::makeWithdrawal( int withdrawal )
+{
+    if (withdrawal < this->_amount)
     {
-        // [19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
         Account::_displayTimestamp();
-        std::cout<<"index:"<< this->_accountIndex<<";p_amount:"<<this->_amount\
-        <<";deposit:"<<this->_nbDeposits;
-        _totalAmount += deposit;
-        _amount += deposit;
-        _totalNbDeposits++;
-        _nbDeposits++;
-        //affichage
+        std::cout << "index:" << this->_accountIndex<<";p_amount:"<<this->_amount<<";withdrawal:"<<withdrawal;
+        Account::_totalAmount -= withdrawal;
+        this->_amount -= withdrawal;
+        Account::_totalNbWithdrawals++;
+        this->_nbWithdrawals++;
+        std::cout << ";amount:" << this->_amount<<";nb_withdrawals:"<< this->_nbWithdrawals<<"\n";
+        return (true);
     }
     else
     {
-         std::cerr << "Erreur : Le montant du dépôt doit être positif." << std::endl;
+        Account::_displayTimestamp();
+        std::cout << "index:" << this->_accountIndex<<";p_amount:"<<this->_amount<<";withdrawal:refused\n";
+        return (false);
     }
 }
 
-// bool	Account::makeWithdrawal( int withdrawal )
-// {
-//     if (withdrawal < _amount)
-//     {
-//         _totalAmount -= withdrawal;
-//         _amount -= withdrawal;
-//         _totalNbWithdrawals++;
-//         _nbWithdrawals++;
-//         return (true);
-//     }
-//     else
-//     {
-//         std::cerr << "Erreur : Montant de retrait invalide ou solde insuffisant." << std::endl;
-//         return (false);
-//     }
-// }
+int		Account::checkAmount( void ) const
+{
+    return (_amount);
+}
 
-// int		Account::checkAmount( void ) const
-// {
-//     return (_amount);
-// }
-
-// // void	Account::displayStatus( void ) const
-// // {
-
-// // }
+void	Account::displayStatus( void ) const
+{
+    Account::_displayTimestamp();
+    std::cout << "index:" << this->_accountIndex \
+    << ";total:" << this->_amount \
+    << ";deposits:" << this->_nbDeposits \
+    << ";withdrawals:" << this->_nbWithdrawals << "\n";
+}
 
 void    Account::_displayTimestamp()
 {
