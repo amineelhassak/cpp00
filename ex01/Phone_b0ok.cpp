@@ -1,6 +1,7 @@
 #include "Contact.hpp"
 
 int PhoneBook::contactCount = 0;
+
 void Contact::setFirstName(std::string firstName)
 {
 	this->firstName = firstName;
@@ -57,11 +58,6 @@ Contact::~Contact(){}
 PhoneBook::PhoneBook(){}
 
 PhoneBook::~PhoneBook(){}
-
-// bool Contact::isValid() {
-//     return (!firstName.empty() && !lastName.empty() && !nickname.empty() && !phoneNumber.empty() && !darkestSecret.empty());
-// }
-
 
 bool	is_all_space(std::string s)
 {
@@ -173,7 +169,6 @@ void PhoneBook::searchContacts()
  		return ;
 	}
 
-	
 	std::cout <<  "Prénom : ";
 	std::cout << arry_contacts[number].getFirstName()<< std::endl;
 

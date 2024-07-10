@@ -1,2 +1,22 @@
-all:
-	c++ -Wall -Wextra -Werror -std=c++98  main.cpp  Phone_b0ok.cpp -o Phone_b0ok
+SRCS = $(wildcard *.cpp)
+OBJS = $(SRCS:.cpp=.o)
+EXEC = Phone_b0ok
+
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
+all: $(EXEC)
+
+$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(EXEC)
+
+re: fclean all
