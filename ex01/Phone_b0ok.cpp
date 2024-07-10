@@ -92,7 +92,6 @@ void PhoneBook::addNewContact()
 	Contact		newContact;
 	std::string	input;
 
-	contactCount = 0;
 
 	std::cout << "Veuillez entrer le prénom:";
 	getline(std::cin, input);
@@ -129,8 +128,19 @@ void PhoneBook::addNewContact()
 	newContact.setDarkest_secret(input);
 	input.clear();
 	arry_contacts[contactCount % 8] = newContact;
-	contactCount++;
+	if (contactCount < 8)
+		contactCount++;
 	std::cout << "Contact ajouté avec succès." << std::endl;
+}
+
+std::string get_valid_str(std::string s)
+{
+	if (s.size() > 10)
+	{
+		s.resize(10);
+		s[9] = '.';
+	}
+	return (s);
 }
 
 void PhoneBook::searchContacts()
@@ -144,12 +154,17 @@ void PhoneBook::searchContacts()
         return ;
 	}
 
-	std::cout << " ___________________________________________ " << std::endl;
+	std::cout << " -------------------------------------------" << std::endl;
     std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
-
-
-	
+	for(int i=0;i< contactCount;i++)
+	{
+		std::cout << "|" << std :: setw(10) << std::setfill(' ') << i<<"|";
+		std::cout << std :: setw(10) << get_valid_str(this->arry_contacts[i].getFirstName())<<"|";
+		std::cout << std :: setw(10) <<get_valid_str(this->arry_contacts[i].getLastName())<<"|";
+		std::cout << std :: setw(10) <<get_valid_str(this->arry_contacts[i].getNickName())<<"|\n";
+	}
+	std::cout << " ___________________________________________\n";
 	std::cout << "Veuillez entrer le numéro de contact à rechercher :";
 	std::cin >> number;
 	if ((number < 0 || number >= 8) || number >= contactCount)
