@@ -1,6 +1,6 @@
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
-EXEC = Phone_b0ok
+EXEC = Account
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
