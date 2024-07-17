@@ -59,9 +59,12 @@ void operator<<(ostream &cout, test &c)
 
 int main()
 {
-    test *t1 = new test;
-    test t2(1,3);
-    test::affiche();
-    cout<<t2;
-    delete t1;
+    // test *t1 = new test;
+    // test t2(1,3);
+    // test::affiche();
+    // cout<<t2;
+    // delete t1;
+    float m = roundf(2.56);
+
+    std::cout << m<<"\n";
 }
