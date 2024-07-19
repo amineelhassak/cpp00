@@ -34,17 +34,29 @@ ClapTrap::ClapTrap(const ClapTrap & clap)
     *this = clap;
 }
 
-// void ClapTrap::takeDamage(unsigned int amount)
-// {
-//     if()
-// }
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if (this->Energy_points - amount >= 0)
+        this->Energy_points -= amount;
+    else if (this->Energy_points > 0)
+        this->Energy_points = 0;
+    else
+        std::cout<<"died !"<<std::endl;
+}
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->Hit_points == 0 || this->Energy_points == 0 || amount + Hit_points > 10)
+    if (this->Hit_points == 0 || this->Energy_points == 0)
         std::cout<<"c'est pas possible de repaired"<<std::endl;
+    if (amount + Hit_points > 10)
+        std::cout << "c'est pas possible d'ajaute"<<std::endl;
     else
+    {
         this->Hit_points += amount;
+        this->Energy_points--;
+    }
 }
 
-ClapTrap::~ClapTrap(){}
+ClapTrap::~ClapTrap(){
+    std::cout<<"des"<<std::endl;
+}
