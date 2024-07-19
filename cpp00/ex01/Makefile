@@ -1,6 +1,6 @@
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
-EXEC = Phone_b0ok
+EXEC = PhoneBook
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -10,7 +10,7 @@ all: $(EXEC)
 $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
 
-%.o: %.cpp
+%.o: %.cpp Contact.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

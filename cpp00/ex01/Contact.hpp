@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amel-has <amel-has@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/17 22:20:15 by amel-has          #+#    #+#             */
+/*   Updated: 2024/07/19 08:58:43 by amel-has         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -28,17 +40,6 @@ class Contact
 		~Contact();
 };
 
-class PhoneBook
-{
-	private:
-		Contact     arry_contacts[8];
-		static int	contactCount;
-	public:
-		PhoneBook();
-		void	addNewContact();
-		void	searchContacts();
-        std::string check(std::string input,std::string msg);
-		~PhoneBook();
-};
+
 bool	is_all_space(std::string s);
 #endif
