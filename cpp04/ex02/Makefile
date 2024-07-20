@@ -1,6 +1,6 @@
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
-EXEC =	test
+EXEC =	FragTrap
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
