@@ -3,6 +3,13 @@
 
 DiamondTrap::DiamondTrap()
 {
+    
+     std::cout << "DiamondTrap "<< this->name << " Default constructor is called!\n";
+}
+
+
+DiamondTrap::DiamondTrap() : name()
+{
      std::cout << "DiamondTrap "<< this->name << " Default constructor is called!\n";
 }
 
