@@ -11,6 +11,7 @@ public:
     DiamondTrap();
     ~DiamondTrap();
     DiamondTrap &operator=(const DiamondTrap &);
+    DiamondTrap(const DiamondTrap &);
 };
 
 
