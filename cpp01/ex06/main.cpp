@@ -6,7 +6,7 @@
 /*   By: amel-has <amel-has@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 06:15:55 by amel-has          #+#    #+#             */
-/*   Updated: 2024/07/15 06:15:56 by amel-has         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:35:33 by amel-has         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void Harl::harlFilter(std::string str)
     switch (index)
     {
         case 0:
-            harl.complain(str);
+            harl.complain("DEBUG");
         case 1:
-            harl.complain(str);
+            harl.complain("INFO");
         case 2:
-            harl.complain(str);
+            harl.complain("WARNING");
         case 3:
-            harl.complain(str);
+            harl.complain("ERROR");
             break;
         default:
             std::cout << "[ Probably complaining about insignificant problems ]\n";
