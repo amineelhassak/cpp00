@@ -10,7 +10,7 @@ all: $(EXEC)
 $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(EXEC)
 
-%.o: %.cpp
+%.o: %.cpp Fixed.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
