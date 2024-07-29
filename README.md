@@ -116,7 +116,7 @@ int toupper(int c)
     return c;
 }
 ```
- ## Fonctions `time` et `localtime`
+ ## Fonctions `time`
 
 ### Fonction `time`
 
