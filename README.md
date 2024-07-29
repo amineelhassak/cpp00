@@ -116,7 +116,38 @@ int toupper(int c)
     return c;
 }
 ```
+ ## Fonctions `time` et `localtime`
+
+### Fonction `time`
+
+La fonction `time` est utilisée pour obtenir l'heure actuelle en secondes depuis le début de l'ère Unix, c'est-à-dire depuis le 1er janvier 1970 à 00:00:00 UTC. Elle retourne la valeur du temps sous forme de nombre entier de type `time_t`.
+
+**Prototype :**
+```cpp
+time_t time(time_t* timer);
+```
+**Time :**
+Un pointeur vers une variable de type time_t où l'heure actuelle peut être stockée. Si ce paramètre est NULL, la fonction ne stocke pas le temps dans une variable mais le retourne directement.
+
+**Valeur de return :**
+La fonction retourne le nombre de secondes écoulées depuis l'ère Unix (1er janvier 1970 à 00:00:00 UTC).
+
+## Fonction `localtime`
+
+La fonction `localtime` est utilisée pour convertir un temps en secondes depuis le début de l'ère Unix, obtenu à l'aide de la fonction `time`, en une structure `tm` contenant les informations détaillées sur la date et l'heure locales.
+
+**Prototype :**
+```cpp
+struct tm* localtime(const time_t* timer);
+```
 La structure `tm` est utilisée pour représenter les informations de date et d'heure en C++. Elle est définie dans l'en-tête `<ctime>` et est souvent utilisée avec les fonctions liées au temps pour obtenir des détails spécifiques sur la date et l'heure.
+
+**Paramètre :**
+
+timer : Un pointeur vers une variable de type time_t qui représente le temps en secondes depuis le début de l'ère Unix. Cette valeur est convertie en heure locale.
+**Valeur de retour :**
+
+La fonction retourne un pointeur vers une structure tm qui contient les informations locales sur la date et l'heure. Cette structure est remplie avec les détails comme les secondes, les minutes, les heures, le jour du mois, le mois, l'année, et d'autres informations temporelles.
 
 ### Définition de la Structure `tm`
 
@@ -133,6 +164,7 @@ struct tm {
     int tm_isdst; // indicateur d'heure d'été
 };
 ```
+
 ## Description des Membres de la Structure `tm`
 
 La structure `tm` est utilisée pour stocker les informations de date et d'heure en C++. Voici la description des membres de cette structure :
@@ -147,21 +179,6 @@ La structure `tm` est utilisée pour stocker les informations de date et d'heure
 - **`tm_yday`** : Le jour de l'année (0 à 365, où 0 correspond au 1er janvier).
 - **`tm_isdst`** : Indicateur d'heure d'été (valeur positive si l'heure d'été est en vigueur, 0 sinon, valeur négative en cas d'erreur).
 - 
- ## Fonctions `time` et `localtime`
-
-### Fonction `time`
-
-La fonction `time` est utilisée pour obtenir l'heure actuelle en secondes depuis le début de l'ère Unix, c'est-à-dire depuis le 1er janvier 1970 à 00:00:00 UTC. Elle retourne la valeur du temps sous forme de nombre entier de type `time_t`.
-
-**Prototype :**
-```cpp
-time_t time(time_t* timer);
-```
-**Time :**
-Un pointeur vers une variable de type time_t où l'heure actuelle peut être stockée. Si ce paramètre est NULL, la fonction ne stocke pas le temps dans une variable mais le retourne directement.
-
-**Valeur de return :**
-La fonction retourne le nombre de secondes écoulées depuis l'ère Unix (1er janvier 1970 à 00:00:00 UTC).
 
 
 
