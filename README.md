@@ -102,7 +102,7 @@ int main() {
 
     return 0;
 }
-
+```
 utlisations : <br>
 ### Fonction `toupper`
 
