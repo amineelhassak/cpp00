@@ -157,9 +157,10 @@ La fonction `time` est utilisée pour obtenir l'heure actuelle en secondes depui
 ```cpp
 time_t time(time_t* timer);
 ```
-timer : Un pointeur vers une variable de type time_t où l'heure actuelle peut être stockée. Si ce paramètre est NULL, la fonction ne stocke pas le temps dans une variable mais le retourne directement.
-Valeur de retour :
+**Time :**
+Un pointeur vers une variable de type time_t où l'heure actuelle peut être stockée. Si ce paramètre est NULL, la fonction ne stocke pas le temps dans une variable mais le retourne directement.
 
+**Valeur de return :**
 La fonction retourne le nombre de secondes écoulées depuis l'ère Unix (1er janvier 1970 à 00:00:00 UTC).
 
 
