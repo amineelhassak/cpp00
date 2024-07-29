@@ -69,7 +69,6 @@ C++ utilise la bibliothèque `<iostream>` pour les opérations d'entrées et de 
     int globalVariable = 100;
     ```
 
-```cpp
 
 ## Utilisation des Namespaces en C++
 
