@@ -1,66 +1,72 @@
 # cpp0
 
+# cpp04
 
+## Entrées et Sorties en C++
 
-<--------------- exercice 00 -------------------->
-<!-- 
+### Bibliothèque d'Entrées/Sorties
 
-#include <iostream>
-inclut la bibliothèque iostream, qui est nécessaire pour les opérations d'entrée et de sortie en C++.
+C++ utilise la bibliothèque `<iostream>` pour les opérations d'entrées et de sorties. Voici comment déclarer différentes variables et utiliser les fonctions de base pour l'affichage et l'entrée.
 
- -->
+### La Déclaration des Variables en C++
 
+1. **Déclaration de Variables Simples**
+    ```cpp
+    int     a;
+    double  b;
+    char    c;
+    bool    d;
+    ```
 
-<!-- 
-la fonction toupper est utilisée pour convertir la lettre minuscule 'b' en majuscule 'B'
+2. **Déclaration de Variables Constantes**
+    ```cpp
+    const double b = 3.14;
+    ```
 
-code comme suit :
-int toupper(int c)
-{
-    if (c >= 'a' && c <= 'z')
-        c -= 32;
-    return c;
-}
+3. **Déclaration de Pointeurs**
+    ```cpp
+    int     *ptr;
+    double  *dptr;
+    char    *cptr;
+    bool    *bptr;
+    ```
 
--->
-<!-- 
+4. **Déclaration de Références**
+    ```cpp
+    int a = 10;
+    int &ref = a;
+    ```
 
-std::string:
-Plus moderne et plus facile à utiliser.
-Offre une multitude de fonctions et d'opérateurs pour manipuler les chaînes.
-Automatiquement géré pour la mémoire et la taille.
+5. **Déclaration de Tableaux**
+    ```cpp
+    int     arr[10];
+    double  darr[5];
+    char    carr[20];
+    ```
 
--->
+6. **Déclaration de Variables Statique**
+    ```cpp
+    void function() 
+    {
+        static int count = 0;
+        count++;
+        std::cout << "Count: " << count << std::endl;
+    }
+    ```
 
-<!-- getLine -->
-<!-- data hiding : private -->
-<!-- find
-size
-insert
-append
-addfront
-addback
-empty
- -->
+7. **Déclaration de Variables Membres de Classe**
+    ```cpp
+    class MyClass {
+        public:
+            int member;
+        private:
+            double privateMember;
+    };
+    ```
 
+8. **Déclaration de Variables Globales**
+    ```cpp
+    int globalVariable = 100;
+    ```
 
-struct tm {
-    int tm_sec;   // secondes (0-59)
-    int tm_min;   // minutes (0-59)
-    int tm_hour;  // heures (0-23)
-    int tm_mday;  // jour du mois (1-31)
-    int tm_mon;   // mois (0-11, janvier = 0)
-    int tm_year;  // année - 1900
-    int tm_wday;  // jour de la semaine (0-6, dimanche = 0)
-    int tm_yday;  // jour de l'année (0-365, 1er janvier = 0)
-    int tm_isdst; // indicateur d'heure d'été (voir remarques ci-dessous)
-};
-l'explication de put_time()
-std::cout << std::put_time(const struct tm* timeptr, const char* format);
-timeptr : Un pointeur vers une structure tm contenant les informations sur la date et l'heure à formater et afficher.
-format : Une chaîne de caractères C-style (const char*) définissant le format de sortie. Il suit la syntaxe des spécificateurs de format de date-heure de la bibliothèque C.
-    exemple de format  : "%Y-%m-%dT%H:%M:%S"
-La fonction time() retourne l'heure actuelle en secondes depuis le début de l'ère Unix (1er janvier 1970 à 00:00:00 UTC).
-std : Indique que nous utilisons un élément du namespace std (standard),qui contient les fonctions et types de la bibliothèque standard C++.
-
-La fonction localtime() retourne un pointeur vers une structure tm qui contient les informations détaillées sur l'heure locale.
+```cpp
