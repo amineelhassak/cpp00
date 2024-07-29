@@ -70,3 +70,53 @@ C++ utilise la bibliothèque `<iostream>` pour les opérations d'entrées et de 
     ```
 
 ```cpp
+
+## Utilisation des Namespaces en C++
+
+### Qu'est-ce qu'un Namespace ?
+
+Les **namespaces** (espaces de noms) en C++ sont utilisés pour organiser le code et éviter les conflits de noms. Ils permettent de regrouper les identifiants (comme les classes, fonctions, et variables) sous un même nom.
+
+### Namespace Standard `std`
+
+Le namespace standard (`std`) contient la plupart des fonctionnalités de la bibliothèque standard C++. Cela inclut des classes, des fonctions et des objets courants, tels que `std::string`, `std::vector`, et les flux d'entrée/sortie (`std::cin`, `std::cout`).
+
+### Utilisation de `using namespace std`
+
+Pour éviter de préfixer chaque identifiant du namespace `std` avec `std::`, vous pouvez utiliser la directive `using namespace std;`. Cela permet d'accéder directement aux éléments de `std` sans préfixe.
+
+#### Exemple de Code
+
+```cpp
+#include <iostream>
+#include <string>
+
+using namespace std;  // Utilisation du namespace std
+
+int main() {
+    string str = "Bonjour, le monde!";
+    cout << "La chaîne est : " << str << endl;
+    cout << "Taille de la chaîne : " << str.size() << endl;
+
+    str.append(" Comment ça va?");
+    cout << "Chaîne après ajout : " << str << endl;
+
+    return 0;
+}
+
+utlisations : <br>
+### Fonction `toupper`
+
+La fonction `toupper` est utilisée pour convertir une lettre minuscule en majuscule. Voici une implémentation simple de cette fonction :
+
+```cpp
+int toupper(int c)
+{
+    if (c >= 'a' && c <= 'z')
+        c -= 32;  // Convertit la lettre minuscule en majuscule
+    return c;
+}
+
+
+
+
